@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Windows.Controls;
 
 namespace TrainitonCalculator {
     public class Calculator {
@@ -23,7 +21,7 @@ namespace TrainitonCalculator {
                 return _textOnScreen;
             }
             _textOnScreen += textOnButton;
-            return _textOnScreen;
+            return Truncate(_textOnScreen);
         }
 
         public string ClearScreen() {
@@ -140,8 +138,9 @@ namespace TrainitonCalculator {
             var result = Math.Pow(number, 2);
             _textOnScreen = result.ToString();
             _lastAnswer = _textOnScreen;
-            return _textOnScreen;
+            return Truncate(_textOnScreen);
         }
+
         public string EqualsTo(string secondValue) {
             switch (_operation)
             {
@@ -181,10 +180,15 @@ namespace TrainitonCalculator {
                     return _lastAnswer;
             }
 
-            return _textOnScreen;
+            return Truncate(_textOnScreen);
         }
 
-
+        private string Truncate(string text) {
+            if (text.Length > 26) {
+                return text.Substring(0, 26);
+            }
+            return text;
+        }
 
         private string _firstValue;
         private string _textOnScreen;

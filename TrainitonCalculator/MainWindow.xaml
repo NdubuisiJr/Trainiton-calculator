@@ -41,7 +41,8 @@
         
          <TextBox Margin="10,36,9.6,17.2" Text="0"
                  Height="30" TextWrapping="Wrap" IsEnabled="False"
-                 TextAlignment="Right" Padding="5" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                 TextAlignment="Right" Padding="5" 
+                  Grid.ColumnSpan="2" Grid.RowSpan="2"
                  x:Name="screen" />
 
 
